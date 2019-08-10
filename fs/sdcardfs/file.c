@@ -153,7 +153,6 @@ static long sdcardfs_compat_ioctl(struct file *file, unsigned int cmd,
 		goto out;
 
 	/* save current_cred and override it */
-
 	saved_cred = override_fsids(sbi, SDCARDFS_I(file_inode(file))->data);
 	if (!saved_cred) {
 		err = -ENOMEM;
@@ -249,7 +248,6 @@ static int sdcardfs_open(struct inode *inode, struct file *file)
 	}
 
 	/* save current_cred and override it */
-
 	saved_cred = override_fsids(sbi, SDCARDFS_I(inode)->data);
 	if (!saved_cred) {
 		err = -ENOMEM;
